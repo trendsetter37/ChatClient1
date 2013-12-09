@@ -54,8 +54,6 @@ public class Client {
      */
     public boolean start() {
         // try to connect to the server
-
-        if (server2 == null) {
             try {
                 socket = new Socket(server, port);
             } // if it failed not much I can so
@@ -87,7 +85,7 @@ public class Client {
                 disconnect();
                 return false;
             }
-        }
+        
         // success we inform the caller that it worked
         return true;
     }
@@ -134,6 +132,7 @@ public class Client {
         } // not much else I can do
         try {
             if (socket != null) {
+                System.out.println("closing because socket is null");
                 socket.close();
             }
         } catch (IOException e) {
